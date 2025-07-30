@@ -1,0 +1,17 @@
+{
+  "home": {
+    "title": "Currency Exchange",
+    "subtitle": "{value} {baseCurrencySymbol} to {targetCurrencySymbol} - Convert {baseCurrency} to {targetCurrency}"
+  },
+  "form": {
+    "amount": "Amount",
+    "from": "From",
+    "to": "To"
+  },
+  "disclaimer": {
+    "text": "We use mid-market rate for our Converter. This is for informational purposes only. You won't receive this rate when sending money."
+  },
+  "footer": {
+    "text": "{baseCurrency} to {targetCurrency} -- Last updated {lastUpdated}"
+  }
+}

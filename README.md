@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+El proyecto fue creado con Next.js y utiliza TypeScript. Lo inicialicé con `create-next-app` y le agregué como "chiche" el sistema de internacionalización con `next-intl`.
 
-## Getting Started
-
-First, run the development server:
+Para correrlo localmente hay que correr los siguientes comandos:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn install
+
+yarn build
+
+yarn start
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Si todo salió bien podés abrir [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+En cuanto al diseño, utilicé Tailwind CSS para los estilos. La fuente principal es Inter, que se carga desde Google Fonts.
+Iba a agregarle theming, pero al no tener un diseño de dark mode, decidí no complicar el proyecto con eso.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+El proyecto incluye un componente de encabezado (`Header`) que muestra el título de la aplicación y un selector de idioma. También hay una página de formulario (`@form/page.tsx`) donde los usuarios pueden interactuar con la aplicación.
 
-## Learn More
+La página de formulario la hice como un [slot](https://nextjs.org/docs/app/api-reference/file-conventions/parallel-routes) para que maneje su propio estado de loading y error si fuera en un contexto productivo. En este caso maneje el estado de loading y error directamente en el componente de formulario.
+Los componentes que están allí estan ahí por que son propios de esta "página" y no son reutilizables en otros lugares de la aplicación.
+Los que si lo son, están en la carpeta `@components` y están más pensados para ser "globales" o reutilizables en toda la aplicación.
 
-To learn more about Next.js, take a look at the following resources:
+Utilicé `zustand` para manejar los estados globales de la aplicación ya que tengo experiencia y me gusta mucho.
+Podría haber sido un provider, pero como es una aplicación pequeña, decidí usar `zustand` directamente para simplificar la gestión del estado. Además leí este artículo que me pareció interesante: [Why I use Zustand instead of React Context](https://frontendmasters.com/blog/introducing-zustand/).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para las llamadas a la API hice un hook personalizado llamado `useApi` que maneja las solicitudes y respuestas de la API.
+Este aproach es solo por ser un proyecto academico y no por ser una buena práctica. En un proyecto real, probablemente usaría algo como `react-query` o `swr` o `graphql` para manejar las solicitudes a la API de manera más eficiente, con mejor manejo de caché, errores, loading, reintentos, etc.
