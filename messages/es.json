@@ -1,0 +1,17 @@
+{
+  "home": {
+    "title": "Cambio de Moneda",
+    "subtitle": "{value} {baseCurrencySymbol} a {targetCurrencySymbol} - Convertir {baseCurrency} a {targetCurrency}"
+  },
+  "form": {
+    "amount": "Cantidad",
+    "from": "De",
+    "to": "A"
+  },
+  "disclaimer": {
+    "text": "Utilizamos la tasa de mercado medio para nuestro Convertidor. Esto es solo para fines informativos. No recibirás esta tasa al enviar dinero."
+  },
+  "footer": {
+    "text": "{baseCurrency} a {targetCurrency} -- Última actualización {lastUpdated}"
+  }
+}
